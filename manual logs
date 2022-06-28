@@ -1,0 +1,4 @@
+ERROR: [/etc/php/7.3/fpm/pool.d/www.conf:5] unknown entry '#listen'
+ERROR: Unable to include /etc/php/7.3/fpm/pool.d/www.conf from /etc/php/7.3/fpm/php-fpm.conf at line 5
+ERROR: failed to load configuration file '/etc/php/7.3/fpm/php-fpm.conf'
+ERROR: FPM initialization failed
