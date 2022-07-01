@@ -2,17 +2,17 @@ version: "3.5"
 
 networks:
   localhost:
-    name: svirgil_network
+    name: network
 volumes:
   wordpress:
-    name: wordpress
+    name: wordpress_volume
     driver: local
     driver_opts:
       device: /home/svirgil/data/wordpress
       o: bind
       type: none
   mariadb:
-    name: mariadb
+    name: mariadb_volume
     driver: local
     driver_opts:
       device: /home/svirgil/data/mariadb
@@ -29,17 +29,17 @@ services:
     ports:
       - "443:443"
     volumes:
-      - wordpress:/var/www/wordpress
+      - wordpress_volume:/var/www/wordpress
     networks:
       - localhost
     restart: always
   wordpress:
     depends_on:
       - mariadb
-    container_name: wp_container
+    container_name: wordpress_container
     build: ./wordpress
     volumes:
-      - wordpress:/var/www/wordpress
+      - wordpress_volume:/var/www/wordpress
     image: wordpress_image
     networks:
       - localhost
@@ -48,7 +48,7 @@ services:
     container_name: mariadb_container
     build: ./mariadb
     volumes:
-      - mariadb:/var/lib/mysql
+      - mariadb_volume:/var/lib/mysql
     image: mariadb_image
     networks:
       - localhost
