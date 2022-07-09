@@ -1,5 +1,8 @@
 FROM debian:buster
 
+LABEL version="1.0"
+LABEL description="Wordpress Server"
+
 RUN apt-get update
 
 RUN apt-get -y install php7.3 php-mysqli php-fpm mariadb-client
@@ -9,6 +12,7 @@ ADD https://ru.wordpress.org/wordpress-6.0-ru_RU.tar.gz /var/www/
 RUN cd /var/www && tar -xzvf wordpress-6.0-ru_RU.tar.gz
 RUN rm -f /var/www/wordpress-6.0-ru_RU.tar.gz
 RUN rm -f /var/www/wordpress/wp-config-sample.php
+
 COPY ./wp-config.php ./var/www/wordpress/
 
 RUN mkdir ./run/php/
