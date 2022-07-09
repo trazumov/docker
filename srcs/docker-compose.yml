@@ -4,14 +4,14 @@ networks:
   localhost:
     name: network
 volumes:
-  wordpress:
+  wordpress_volume:
     name: wordpress_volume
     driver: local
     driver_opts:
       device: /home/svirgil/data/wordpress
       o: bind
       type: none
-  mariadb:
+  mariadb_volume:
     name: mariadb_volume
     driver: local
     driver_opts:
