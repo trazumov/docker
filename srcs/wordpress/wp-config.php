@@ -14,16 +14,16 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'dbtest' );
+define( 'DB_NAME', getenv('MARIADB_DATABASE') );
 
 /** Database username */
-define( 'DB_USER', 'user' );
+define( 'DB_USER', getenv('MARIADB_USER') );
 
 /** Database password */
-define( 'DB_PASSWORD', 'password' );
+define( 'DB_PASSWORD', getenv('MARIADB_PASSWORD') );
 
 /** Database hostname mariadb or localhost */
-define( 'DB_HOST', 'mariadb' );
+define( 'DB_HOST', getenv('WORDPRESS_MARIADB_HOST') );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -75,7 +75,7 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
@@ -89,4 +89,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /** Sets up WordPress vars and included files. */
-require_once ABSPATH . 'wp-settings.php';
+/**require_once ABSPATH . 'wp-settings.php';*/

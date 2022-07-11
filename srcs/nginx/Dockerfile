@@ -3,8 +3,7 @@ FROM debian:buster
 LABEL version="1.0"
 LABEL description="Nginx Server"
 
-RUN apt-get update
-RUN apt-get install nginx -y
+RUN apt-get update && apt-get install nginx -y
 RUN apt-get install openssl -y
 RUN openssl req -x509 -newkey rsa:2048 -nodes \
 -keyout /etc/ssl/private/nginx.key \

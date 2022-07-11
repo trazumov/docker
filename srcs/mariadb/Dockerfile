@@ -3,11 +3,11 @@ FROM debian:buster
 LABEL version="1.0"
 LABEL description="MariaDB Server"
 
-RUN apt-get update
-RUN apt-get install mariadb-server -y
+RUN apt-get update && apt-get install mariadb-server -y
 
 COPY ./50-server.cnf /etc/mysql/mariadb.conf.d/
 COPY ./createdb.sql /
+COPY ./sql.sh /
 
 # start SQl server to make an insert
 RUN service mysql start && mysql < createdb.sql
