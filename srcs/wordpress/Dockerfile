@@ -17,14 +17,9 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
-#COPY ./install.sh ./var/www/
-#RUN chmod 777 /var/www/install.sh
-#RUN bash /var/www/install.sh
-
 EXPOSE 9000
 
 RUN mkdir ./run/php/
-#CMD ./usr/sbin/php-fpm7.3 -F
 WORKDIR /var/www/wordpress
 COPY	./install.sh /
 RUN		chmod 777 /install.sh
