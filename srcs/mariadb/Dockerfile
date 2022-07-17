@@ -6,11 +6,9 @@ LABEL description="MariaDB Server"
 RUN apt-get update && apt-get install mariadb-server -y
 
 COPY ./50-server.cnf /etc/mysql/mariadb.conf.d/
-COPY ./createdb.sql /
+COPY ./settings.sql /
 
-# start SQl server to make an insert
-RUN service mysql start && mysql < createdb.sql
-RUN rm -f createdb.sql
+RUN service mysql start && mysql < settings.sql && rm -f settings.sql
 
 EXPOSE 3306
 

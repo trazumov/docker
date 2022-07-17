@@ -56,7 +56,8 @@ services:
     volumes:
       - mariadb_volume:/var/lib/mysql
     image: mariadb_image
-    env_file: .env
+    env_file:
+      - .env
     networks:
       - localhost
     restart: always

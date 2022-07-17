@@ -9,9 +9,6 @@ COPY ./www.conf /etc/php/7.3/fpm/pool.d
 ADD https://ru.wordpress.org/wordpress-6.0-ru_RU.tar.gz /var/www/
 RUN cd /var/www && tar -xzvf wordpress-6.0-ru_RU.tar.gz
 RUN rm -f /var/www/wordpress-6.0-ru_RU.tar.gz
-RUN rm -f /var/www/wordpress/wp-config-sample.php
-
-#COPY ./wp-config.php ./var/www/wordpress/
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
