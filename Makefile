@@ -2,7 +2,7 @@ ALL_CONTAINERS = $$(docker ps -a -q)
 ALL_IMAGES = $$(docker images -a -q)
 ALL_VOLUMES = $$(docker volume ls -q)
 
-all: sql
+all:
 	docker-compose -f ./srcs/docker-compose.yml up
 sql:
 	bash ./create_sql_file.sh
